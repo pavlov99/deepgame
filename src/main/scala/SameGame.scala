@@ -18,17 +18,10 @@ object SameGame {
     val game = new com.github.pavlov99.deepgame.SameGame(
       board.transpose.toList.map(_.toList.reverse)
     )
-
     source.close()
 
     println(game)
-    println(game.height, game.width)
-
-    Seq((3, 2)).foreach(c => {
-      println("Cell: " + c)
-      println("Neighbours: " + game.getNeighbours(c))
-      println(game.getConnected(c))
-      println(game.move(c))
-    })
+    val randomSolution = game.solveRandom()
+    println(randomSolution)
   }
 }
